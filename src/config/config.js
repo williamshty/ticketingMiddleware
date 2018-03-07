@@ -1,5 +1,5 @@
 module.exports = {
-    port: process.env.PORT || 8087,
+    port: process.env.PORT || 8080,
     db: {
         database: process.env.DB_NAME || 'rhino_ticket',
         user: process.env.DB_USER || 'president',
