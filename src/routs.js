@@ -7,4 +7,6 @@ module.exports = (app) => {
     app.put('/updateTicket',
         TicketUpdateController.updateTicket)
     app.post('/insert', TicketingInsertionController.insertTicket)
+    app.get('/getUpdatedTix',
+    TicketUpdateController.getUpdatedTickets)
 }

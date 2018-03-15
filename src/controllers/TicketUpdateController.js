@@ -1,4 +1,6 @@
 const { TicketingInfo } = require('../models')
+const {sequelize} = require('../models')
+const Op = sequelize.Op
 
 module.exports = {
   async updateTicket (req, res) {
@@ -23,5 +25,24 @@ module.exports = {
       })
     }
   },
-  async dumpData () {}
+  async getUpdatedTickets (res) {
+    try {
+      const tickets = TicketingInfo.findAll(
+        {
+          where: {
+            redeemedTix: {
+              [Op.gt]: 0
+            }
+          }
+        }
+      )
+      console.log(tickets)
+      res.send(tickets)
+    } catch (err) {
+      // console.log(req.query.submissionID)
+      res.status(400).send({
+        error: 'Failed to Find Ticket'
+      })
+    }
+  }
 }

@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: 0
         }
     }, {
-        timestamps: false
+        // timestamps: false
     })
     return TicketingInfo
 }
